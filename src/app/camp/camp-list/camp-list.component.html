@@ -1,0 +1,5 @@
+<div id="map-canvas">
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker *ngFor="let camp of camps" [latitude]="camp.Location.Lat" [longitude]="camp.Location.Lng"></agm-marker>
+  </agm-map>
+</div>
