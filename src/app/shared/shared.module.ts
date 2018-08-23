@@ -5,6 +5,9 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 import { environment } from "../../environments/environment";
 import { AgmCoreModule } from "@agm/core";
 import { MaterialModule } from "../material/material.module";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { BottomSheetNavigateComponent } from "./bottom-sheet-navigate/bottom-sheet-navigate.component";
+import { ClipboardModule } from "ngx-clipboard";
 
 @NgModule({
   imports: [
@@ -14,9 +17,12 @@ import { MaterialModule } from "../material/material.module";
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyBuKQXq3VhtYwOUdRSabC_tlln2nj2-f_8"
     }),
-    MaterialModule
+    MaterialModule,
+    FontAwesomeModule,
+    ClipboardModule
   ],
-  declarations: [],
-  exports: [AgmCoreModule, MaterialModule]
+  declarations: [BottomSheetNavigateComponent],
+  exports: [AgmCoreModule, MaterialModule, FontAwesomeModule, ClipboardModule],
+  entryComponents: [BottomSheetNavigateComponent]
 })
 export class SharedModule {}

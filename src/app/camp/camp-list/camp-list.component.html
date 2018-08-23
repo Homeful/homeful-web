@@ -1,5 +1,21 @@
-<div id="map-canvas">
-  <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker *ngFor="let camp of camps" [latitude]="camp.Location.Lat" [longitude]="camp.Location.Lng"></agm-marker>
-  </agm-map>
-</div>
+<mat-tab-group>
+  <mat-tab label="Map">
+    <div id="map-canvas">
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="11">
+        <agm-marker *ngFor="let camp of camps$ | async" [latitude]="camp.Location.Lat" [longitude]="camp.Location.Lng">
+          <agm-info-window>{{camp.Name}}</agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
+  </mat-tab>
+  <mat-tab label="List">
+    <mat-list class="flex-container">
+      <mat-list-item *ngFor="let camp of camps$ | async">
+        {{camp.Name}}
+        <button class="list-button" mat-raised-button color="accent" (click)="openBottomSheet(camp)">
+          <mat-icon>place</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-tab>
+</mat-tab-group>

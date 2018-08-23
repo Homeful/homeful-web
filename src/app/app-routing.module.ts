@@ -1,21 +1,24 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { CampModule } from "./camp/camp.module";
 
 const routes: Routes = [
   {
     path: "camps",
-    loadChildren: "../app/camp/camp.module#CampModule"
+    loadChildren: "./camp/camp.module#CampModule"
+  },
+  {
+    path: "members",
+    loadChildren: "./member/member.module#MemberModule"
   },
   {
     path: "",
-    redirectTo: "",
+    redirectTo: "camps",
     pathMatch: "full"
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), CampModule],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

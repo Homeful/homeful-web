@@ -6,20 +6,99 @@ body {
   width: 100%;
 }
 
+/* MAP STYLES */
 #map-canvas {
-  height: calc(100vh - 4em - 20px);
+  height: calc(100vh - 6em - 20px);
   margin-left: -10px;
   margin-right: -10px;
   margin-top: -10px;
 }
-
 agm-map {
   height: 100%;
   width: 100%;
 }
 
-.material-icons {
+.material-icons,
+.ng-fa-icon {
   padding: 0px 5px;
+}
+
+.space-around-sm {
+  margin: 5px !important;
+}
+
+.space-around-md {
+  margin: 10px !important;
+}
+
+.space-around-lg {
+  margin: 15px !important;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+.no-mat-dialog-container-overflow .mat-dialog-container {
+  overflow: hidden !important;
+}
+.move-right-sm {
+  margin-right: -5px !important;
+}
+.move-right-md {
+  margin-right: -10px !important;
+}
+.move-right-lg {
+  margin-right: -15px !important;
+}
+.move-right-xl {
+  margin-right: -20px !important;
+}
+
+.move-left-sm {
+  margin-left: -5px !important;
+}
+.move-left-md {
+  margin-left: -10px !important;
+}
+.move-left-lg {
+  margin-left: -15px !important;
+}
+.move-left-xl {
+  margin-left: -20px !important;
+}
+
+.word-wrap {
+  word-wrap: break-word;
+}
+
+.fill {
+  flex: 1;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+/* We disable edit pages by default and still need to read the text (it defaults to 0.38 opacity) */
+.mat-input-element:disabled {
+  color: rgb(0, 0, 0) !important;
+}
+
+.mat-slide-toggle-bar:disabled {
+  background-color: rgba(244, 67, 54, 0.5) !important;
+}
+.mat-slide-toggle-thumb:disabled {
+  background-color: #f44336 !important;
+}
+
+/* The content inside the navmenu overflows sometimes */
+.mat-drawer-content {
+  overflow: hidden !important;
+}
+
+/* There's some weird left-padding on the task count toggler */
+.no-mat-list-item-content-padding .mat-list-item-content {
+  padding: 0px !important;
 }
 
 /* Rules for sizing the icon. */
@@ -54,6 +133,21 @@ agm-map {
 
 .container {
   margin: 20px;
+  padding: 0px;
+  width: auto;
+}
+
+/* This is for the lot expansion panels. When opened they were creating scrollbars. */
+.mat-tab-body-content {
+  overflow: hidden !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.flex {
+  display: flex;
 }
 
 .flex-container {
@@ -77,9 +171,20 @@ agm-map {
   flex: 1 1 auto;
 }
 
+.detail-edit {
+  flex: 3;
+  position: absolute !important;
+  right: 2%;
+}
+
 /* Data tables */
 table {
   width: 100%;
+}
+
+.table {
+  height: 450px;
+  overflow: auto;
 }
 
 .mat-form-field {
@@ -90,4 +195,84 @@ table {
 td,
 th {
   width: 25%;
+}
+
+/* Radio Buttons */
+.radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.radio-button {
+  margin: 5px;
+}
+
+.selected-value {
+  margin: 15px 0;
+}
+
+/* Buttons */
+.back-btn {
+  margin-top: -5px !important;
+}
+
+.two-buttons {
+  display: flex;
+  margin: 5px 0px;
+}
+
+.two-buttons button {
+  margin: 5px 0px;
+}
+
+.button-float-right {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.button-float-right button {
+  margin: 5px 0px;
+}
+
+.agendaAddButton {
+  position: relative;
+  align-items: center;
+  flex: 1;
+}
+
+/* Cards */
+
+.agenda-description {
+  margin: 10px 0px;
+  display: flex;
+  flex: 1;
+}
+
+.agenda-add-button {
+  position: relative;
+  float: right;
+  margin-bottom: 5px;
+}
+
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+.tim-typo {
+  padding-left: 25%;
+  margin-bottom: 40px;
+  position: relative;
+  width: 100%;
+}
+.tim-typo .tim-note {
+  bottom: 5px;
+  color: #c0c1c2;
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  left: 0;
+  margin-left: 20px;
+  position: absolute;
+  width: 260px;
 }

@@ -5,7 +5,13 @@ import {
   MatToolbarModule,
   MatListModule,
   MatIconModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatTabsModule,
+  MatBottomSheetModule,
+  MatSnackBarModule,
+  MatFormFieldModule,
+  MatProgressSpinnerModule,
+  MatInputModule
 } from "@angular/material";
 import { LayoutModule } from "@angular/cdk/layout";
 
@@ -19,7 +25,13 @@ import { LayoutModule } from "@angular/cdk/layout";
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatTabsModule,
+    MatBottomSheetModule,
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
+    MatInputModule
   ]
 })
 export class MaterialModule {}

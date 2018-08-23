@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <span class="toolbar-header">Members</span>
+  <!-- This fills the remaining space of the current row -->
+  <span class="toolbar-add"></span>
+
+  <button mat-raised-button color="accent" routerLink="add">Add Member</button>
+
+</mat-toolbar>
+<mat-progress-spinner *ngIf="!membersFound" [hidden]="members$ | async" class="center" color="primary" mode="indeterminate"
+  value="20"></mat-progress-spinner>
+<mat-nav-list>
+  <div *ngFor="let member of members$ | async">
+    <a mat-list-item [routerLink]="['edit', member.id]">
+      <h4 mat-line>{{member.name}}</h4>
+      <p class="gray" mat-line *ngIf="member.phone">
+        {{ member.phone }}
+      </p>
+      <p class="gray" mat-line *ngIf="member.email">
+        {{ member.email }}
+      </p>
+      <p class="gray" mat-line *ngIf="member.street">
+        {{ member.street }} {{ member.city }}, {{ member.state }}
+      </p>
+    </a>
+    <mat-divider></mat-divider>
+  </div>
+</mat-nav-list>
