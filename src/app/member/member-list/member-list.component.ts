@@ -10,8 +10,8 @@ import { map } from "rxjs/operators";
   styleUrls: ["./member-list.component.scss"]
 })
 export class MemberListComponent implements OnInit {
-  private members$: Observable<Member[]>;
-  private membersFound: boolean = false;
+  members$: Observable<Member[]>;
+  membersFound: boolean = false;
   constructor(private memberService: MemberService) {}
 
   ngOnInit() {

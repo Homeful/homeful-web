@@ -12,13 +12,13 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
   styleUrls: ["./member-detail.component.scss"]
 })
 export class MemberDetailComponent implements OnInit {
-  private memberForm: FormGroup;
-  private title: string = "Add";
-  private member: Member = new Member();
-  private member$: Observable<Member> = new Observable<Member>();
-  private editMode: boolean = false;
-  private addMode: boolean = true;
-  private id: string;
+  memberForm: FormGroup;
+  title: string = "Add";
+  member: Member = new Member();
+  member$: Observable<Member> = new Observable<Member>();
+  editMode: boolean = false;
+  addMode: boolean = true;
+  id: string;
   constructor(
     private memberService: MemberService,
     private router: Router,
