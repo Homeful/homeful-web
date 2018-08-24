@@ -12,6 +12,7 @@
     <mat-list class="flex-container">
       <mat-list-item *ngFor="let camp of camps$ | async">
         {{camp.Name}}
+        <span style="flex: 1"></span>
         <button class="list-button" mat-raised-button color="accent" (click)="openBottomSheet(camp)">
           <mat-icon>place</mat-icon>
         </button>
