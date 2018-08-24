@@ -4,7 +4,7 @@
       <mat-icon mat-icon>chevron_left</mat-icon>
     </button>
     {{title}} Member
-    <button class="detail-edit" [disabled]="editMode" (click)="setEditMode(true)" [hidden]="addMode" mat-button color="accent">Edit
+    <button class="detail-edit" [disabled]="editMode" (click)="setEditMode(true)" *ngIf="!addMode" mat-button color="accent">Edit
       <mat-icon mat-list-icon style="font-size: 20px">edit</mat-icon>
     </button>
   </h1>
