@@ -52,11 +52,12 @@ export class MemberDetailComponent implements OnInit {
   createForm() {
     this.memberForm = this.fb.group({
       name: ["", Validators.required],
-      email: ["", Validators.required],
+      email: [""],
       phone: ["", Validators.required],
-      street: ["", Validators.required],
-      city: ["", Validators.required],
-      state: ["", Validators.required]
+      street: [""],
+      city: [""],
+      state: [""],
+      zip: [""]
     });
   }
 
@@ -90,7 +91,8 @@ export class MemberDetailComponent implements OnInit {
       email: formModel.email as string,
       street: formModel.street as string,
       city: formModel.city as string,
-      state: formModel.state as string
+      state: formModel.state as string,
+      zip: formModel.zip as string
     };
     return saveMember;
   }

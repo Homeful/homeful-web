@@ -1,11 +1,12 @@
 export class Member {
   id?: string;
   name: string = "";
-  email: string = "";
-  phone: string = "";
-  street: string = "";
-  city: string = "";
-  state: string = "";
+  email?: string = "";
+  phone?: string = "";
+  street?: string = "";
+  city?: string = "";
+  state?: string = "";
+  zip?: string = "";
 }
 
 // TODO: implement KVP for email and phone

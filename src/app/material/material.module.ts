@@ -11,7 +11,9 @@ import {
   MatSnackBarModule,
   MatFormFieldModule,
   MatProgressSpinnerModule,
-  MatInputModule
+  MatInputModule,
+  MatSlideToggleModule,
+  MatDialogModule
 } from "@angular/material";
 import { LayoutModule } from "@angular/cdk/layout";
 
@@ -31,7 +33,9 @@ import { LayoutModule } from "@angular/cdk/layout";
     MatSnackBarModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
-    MatInputModule
+    MatInputModule,
+    MatSlideToggleModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule {}

@@ -1,19 +1,27 @@
+<mat-toolbar color="primary">
+  <span class="toolbar-header">Camps</span>
+  <!-- This fills the remaining space of the current row -->
+  <span class="toolbar-add"></span>
+
+  <button mat-raised-button color="accent" routerLink="add">Add Camp</button>
+
+</mat-toolbar>
 <mat-tab-group>
   <mat-tab label="Map">
     <div id="map-canvas">
       <agm-map [latitude]="lat" [longitude]="lng" [zoom]="11">
-        <agm-marker *ngFor="let camp of camps$ | async" [latitude]="camp.Location.Lat" [longitude]="camp.Location.Lng">
-          <agm-info-window>{{camp.Name}}</agm-info-window>
+        <agm-marker *ngFor="let camp of camps$ | async" [latitude]="camp.location.lat" [longitude]="camp.location.lng">
+          <agm-info-window>{{camp.name}}</agm-info-window>
         </agm-marker>
       </agm-map>
     </div>
   </mat-tab>
   <mat-tab label="List">
     <mat-list class="flex-container">
-      <mat-list-item *ngFor="let camp of camps$ | async">
-        {{camp.Name}}
+      <mat-list-item *ngFor="let camp of camps$ | async" [routerLink]="['edit', camp.id]">
+        {{camp.name}}
         <span style="flex: 1"></span>
-        <button mat-raised-button color="accent" (click)="openBottomSheet(camp)">
+        <button mat-raised-button color="accent" (click)="openBottomSheet($event, camp)">
           <mat-icon>place</mat-icon>
         </button>
       </mat-list-item>

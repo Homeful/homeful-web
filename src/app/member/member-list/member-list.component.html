@@ -19,8 +19,9 @@
         {{ member.email }}
       </p>
       <p class="gray" mat-line *ngIf="member.street">
-        {{ member.street }} {{ member.city }}, {{ member.state }}
+        {{ member.street }}<br/>{{ member.city }}, {{ member.state }}, {{member.zip}}
       </p>
+      <button mat-mini-fab (click)="openBottomSheet($event, member)"><mat-icon>more_vert</mat-icon></button>
     </a>
     <mat-divider></mat-divider>
   </div>

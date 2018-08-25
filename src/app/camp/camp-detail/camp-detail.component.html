@@ -1,3 +1,44 @@
-<p>
-  camp-detail works!
-</p>
+<section class="mat-typography">
+  <h1 class="flex">
+    <button mat-icon-button class="back-btn" routerLink="/camps">
+      <mat-icon mat-icon>chevron_left</mat-icon>
+    </button>
+    {{title}} Camp
+    <button class="detail-edit" [disabled]="editMode" (click)="setEditMode(true)" *ngIf="!addMode" mat-button color="accent">Edit
+      <mat-icon mat-list-icon style="font-size: 20px">edit</mat-icon>
+    </button>
+  </h1>
+</section>
+<form [formGroup]="campForm" class="flex-container" *ngIf="camp" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" [value]="camp.name" required>
+
+      <!-- <mat-error *ngIf="name.invalid">Name is not valid.</mat-error> -->
+    </mat-form-field>
+    <mat-slide-toggle color="accent" formControlName="active" [checked]="camp.active">Active</mat-slide-toggle>
+    <h5>We use your current location for the camp location</h5>
+    <div style="padding:20px;"></div>
+    <h2>Camp Members</h2>
+    <mat-list *ngIf="camp.members">
+      <mat-list-item *ngFor="let member of camp.members">
+        <button mat-button color="accent">
+          <mat-icon mat-list-icon color="warn" *ngIf="editMode" (click)="removeMember(member)">delete_forver</mat-icon>
+        </button>
+        <h4 mat-line>{{member.name}}</h4>
+        <p mat-line>
+          {{member.phone}}
+        </p>
+      </mat-list-item>
+    </mat-list>
+    <div class="flex">
+      <button class="agendaAddButton" *ngIf="editMode || addMode" mat-button color="accent" (click)="openCreateMemberDialog($event)">Add
+        Camp Member
+        <mat-icon position="right" mat-list-icon>add</mat-icon>
+      </button>
+    </div>
+
+  </div>
+  <button type="submit" *ngIf="editMode || addMode" [disabled]="campForm.unTouched || !campForm.valid" mat-raised-button color="primary">Save</button>
+  <!-- <button type="button" *ngIf="editMode" mat-raised-button color="warn" (click)="openConfirmDialog()">Remove</button> -->
+</form>

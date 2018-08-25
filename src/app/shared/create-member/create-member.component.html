@@ -1,0 +1,17 @@
+<h2>Add Camp Member</h2>
+<div class="flex-container">
+  <div class="form-container">
+    <mat-form-field>
+      <input matInput placeholder="Name" [(ngModel)]="member.name">
+      <!-- <mat-error *ngIf="name.invalid">Name is not valid.</mat-error> -->
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Phone" [(ngModel)]="member.phone">
+      <!-- <mat-error *ngIf="name.invalid">Name is not valid.</mat-error> -->
+    </mat-form-field>
+    <!-- <mat-slide-toggle color="accent" formControlName="active" [checked]="member.active">Active</mat-slide-toggle> -->
+  </div>
+  <button [disabled]="!member.name" mat-raised-button color="primary" (click)="onSave()">Save</button>
+  <button mat-raised-button (click)="onCancel()">Cancel</button>
+  <!-- <button type="button" *ngIf="editMode" mat-raised-button color="warn" (click)="openConfirmDialog()">Remove</button> -->
+</div>

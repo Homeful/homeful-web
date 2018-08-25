@@ -8,6 +8,9 @@ import { MaterialModule } from "../material/material.module";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { BottomSheetNavigateComponent } from "./bottom-sheet-navigate/bottom-sheet-navigate.component";
 import { ClipboardModule } from "ngx-clipboard";
+import { CreateMemberComponent } from "./create-member/create-member.component";
+import { FormsModule } from "@angular/forms";
+import { BottomSheetMemberComponent } from "./bottom-sheet-member/bottom-sheet-member.component";
 
 @NgModule({
   imports: [
@@ -19,10 +22,19 @@ import { ClipboardModule } from "ngx-clipboard";
     }),
     MaterialModule,
     FontAwesomeModule,
-    ClipboardModule
+    ClipboardModule,
+    FormsModule
   ],
-  declarations: [BottomSheetNavigateComponent],
+  declarations: [
+    BottomSheetNavigateComponent,
+    CreateMemberComponent,
+    BottomSheetMemberComponent
+  ],
   exports: [AgmCoreModule, MaterialModule, FontAwesomeModule, ClipboardModule],
-  entryComponents: [BottomSheetNavigateComponent]
+  entryComponents: [
+    BottomSheetNavigateComponent,
+    CreateMemberComponent,
+    BottomSheetMemberComponent
+  ]
 })
 export class SharedModule {}

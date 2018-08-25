@@ -3,6 +3,8 @@ import { Observable } from "rxjs";
 import { Member } from "../../models/member";
 import { MemberService } from "../../services/member.service";
 import { map } from "rxjs/operators";
+import { BottomSheetMemberComponent } from "../../shared/bottom-sheet-member/bottom-sheet-member.component";
+import { MatBottomSheet } from "@angular/material";
 
 @Component({
   selector: "app-member-list",
@@ -12,24 +14,24 @@ import { map } from "rxjs/operators";
 export class MemberListComponent implements OnInit {
   members$: Observable<Member[]>;
   membersFound: boolean = false;
-  constructor(private memberService: MemberService) {}
+  constructor(
+    private memberService: MemberService,
+    private bottomSheet: MatBottomSheet
+  ) {}
 
   ngOnInit() {
-    this.members$ = this.memberService
-      .getAll()
-      .snapshotChanges()
-      .pipe(
-        map(actions => {
-          return actions.map(action => {
-            const member = action.payload.val();
-            member.id = action.payload.key;
-            return member;
-          });
-        })
-      );
+    this.members$ = this.memberService.getAll();
     this.members$.subscribe(members => {
       console.log(members);
       this.membersFound = true;
+    });
+  }
+
+  openBottomSheet(event: MouseEvent, member: Member): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.bottomSheet.open(BottomSheetMemberComponent, {
+      data: { member: member }
     });
   }
 }

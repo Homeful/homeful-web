@@ -22,22 +22,12 @@ export class CampListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.camps$ = this.campService
-      .getAll()
-      .snapshotChanges()
-      .pipe(
-        map(actions => {
-          return actions.map(action => {
-            const camp = action.payload.val();
-            camp.id = action.payload.key;
-            console.log({ camp });
-            return camp;
-          });
-        })
-      );
+    this.camps$ = this.campService.getAll();
   }
 
-  openBottomSheet(camp: Camp): void {
+  openBottomSheet(event: MouseEvent, camp: Camp): void {
+    event.preventDefault();
+    event.stopPropagation();
     this.bottomSheet.open(BottomSheetNavigateComponent, {
       data: { camp: camp }
     });

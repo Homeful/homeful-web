@@ -1,0 +1,23 @@
+<mat-nav-list class="bottom-sheet" *ngIf="member">
+  <a mat-list-item>
+    <span mat-line>
+      <fa-icon [icon]="faPhone"></fa-icon><a [href]="call">Call</a>
+    </span>
+  </a>
+  <a mat-list-item (click)="email($event)">
+    <span mat-line>
+      <fa-icon [icon]="faEnvelope"></fa-icon> Email
+    </span>
+  </a>
+  <a mat-list-item (click)="copyAddress($event)" ngxClipboard [cbContent]="address">
+    <span mat-line>
+      <fa-icon [icon]="faCopy"></fa-icon> Copy Address
+    </span>
+  </a>
+
+  <!-- <a mat-list-item (click)="openInMaps($event)">
+    <span mat-line>
+      <fa-icon [icon]="faMapMarkerAlt"></fa-icon> Open in Maps
+    </span>
+  </a> -->
+</mat-nav-list>

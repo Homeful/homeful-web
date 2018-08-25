@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Member } from "../models/member";
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -11,8 +12,19 @@ export class MemberService {
 
   constructor(private db: AngularFireDatabase) {}
 
-  getAll(): AngularFireList<Member> {
-    return this.db.list(`/${this.collection}`);
+  getAll(): Observable<Member[]> {
+    return this.db
+      .list(`/${this.collection}`)
+      .snapshotChanges()
+      .pipe(
+        map(actions => {
+          return actions.map(action => {
+            const member = action.payload.val() as Member;
+            member.id = action.payload.key;
+            return member;
+          });
+        })
+      );
   }
 
   get(id: string): Observable<Member> {

@@ -14,7 +14,7 @@ import { faCopy, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 export class BottomSheetNavigateComponent implements OnInit {
   faCopy = faCopy;
   faMapMarkerAlt = faMapMarkerAlt;
-  val = `${this.data.camp.Location.Lat},${this.data.camp.Location.Lng}`;
+  val = `${this.data.camp.location.lat},${this.data.camp.location.lng}`;
 
   constructor(
     private bottomSheetRef: MatBottomSheetRef<BottomSheetNavigateComponent>,

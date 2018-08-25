@@ -8,7 +8,7 @@ body {
 
 /* MAP STYLES */
 #map-canvas {
-  height: calc(100vh - 6em - 20px);
+  height: calc(100vh - 11em - 20px);
   margin-left: -10px;
   margin-right: -10px;
   margin-top: -10px;
@@ -17,6 +17,21 @@ agm-map {
   height: 100%;
   width: 100%;
 }
+/* END MAP STYLES */
+
+/* list styles */
+.mat-list {
+  height: calc(100vh - 12em - 20px);
+  overflow: auto;
+}
+.mat-nav-list {
+  height: calc(100vh - 9em - 20px);
+  overflow: auto;
+}
+.bottom-sheet {
+  height: auto;
+}
+/* END list styles */
 
 .material-icons,
 .ng-fa-icon {
