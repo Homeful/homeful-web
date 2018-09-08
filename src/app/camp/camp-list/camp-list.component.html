@@ -19,7 +19,10 @@
   <mat-tab label="List">
     <mat-list class="flex-container">
       <mat-list-item *ngFor="let camp of camps$ | async" [routerLink]="['edit', camp.id]">
-        {{camp.name}}
+        <h4 mat-line>{{camp.name}}</h4>
+        <p mat-line *ngIf="camp.members">
+          {{ camp.members | members }}
+        </p>
         <span style="flex: 1"></span>
         <button mat-raised-button color="accent" (click)="openBottomSheet($event, camp)">
           <mat-icon>place</mat-icon>

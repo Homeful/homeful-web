@@ -20,7 +20,7 @@ agm-map {
 /* END MAP STYLES */
 
 /* list styles */
-.mat-list {
+.mat-list:not(.detail) {
   height: calc(100vh - 12em - 20px);
   overflow: auto;
 }

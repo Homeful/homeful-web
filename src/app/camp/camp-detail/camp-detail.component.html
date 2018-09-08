@@ -20,7 +20,7 @@
     <h5>We use your current location for the camp location</h5>
     <div style="padding:20px;"></div>
     <h2>Camp Members</h2>
-    <mat-list *ngIf="camp.members">
+    <mat-list class="detail" *ngIf="camp.members">
       <mat-list-item *ngFor="let member of camp.members">
         <button mat-button color="accent">
           <mat-icon mat-list-icon color="warn" *ngIf="editMode" (click)="removeMember(member)">delete_forver</mat-icon>
