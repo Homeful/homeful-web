@@ -41,8 +41,6 @@ export class MemberDetailComponent implements OnInit {
         return new Observable<Member>();
       })
     );
-    console.log(`addMode: ${this.addMode}`);
-    console.log(`editMode: ${this.editMode}`);
     this.member$.subscribe(member => {
       this.member = member;
       this.memberForm.setValue(this.member);
@@ -64,15 +62,11 @@ export class MemberDetailComponent implements OnInit {
   setEditMode(isEditMode: boolean) {
     this.editMode = isEditMode;
     this.setFormAvailability();
-    console.log(`addMode: ${this.addMode}`);
-    console.log(`editMode: ${this.editMode}`);
   }
 
   setAddMode(isAddMode: boolean) {
     this.addMode = isAddMode;
     this.setFormAvailability();
-    console.log(`addMode: ${this.addMode}`);
-    console.log(`editMode: ${this.editMode}`);
   }
 
   setFormAvailability() {

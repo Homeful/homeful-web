@@ -1,0 +1,7 @@
+<mat-nav-list class="bottom-sheet">
+  <a mat-list-item (click)="copyLink($event)" ngxClipboard [cbContent]="link">
+    <span mat-line>
+      <fa-icon [icon]="faCopy"></fa-icon> Copy Route Link
+    </span>
+  </a>
+</mat-nav-list>

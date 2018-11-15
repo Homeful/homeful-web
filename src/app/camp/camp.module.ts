@@ -6,7 +6,6 @@ import { SharedModule } from "../shared/shared.module";
 import { CampDetailComponent } from "./camp-detail/camp-detail.component";
 import { CampListComponent } from "./camp-list/camp-list.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { MembersPipe } from "../pipes/members.pipe";
 
 @NgModule({
   imports: [
@@ -16,6 +15,6 @@ import { MembersPipe } from "../pipes/members.pipe";
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [CampDetailComponent, CampListComponent, MembersPipe]
+  declarations: [CampDetailComponent, CampListComponent]
 })
-export class CampModule {}
+export class CampModule { }

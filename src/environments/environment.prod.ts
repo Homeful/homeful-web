@@ -1,4 +1,5 @@
 export const environment = {
+  url: "https://homeful-d9f3c.firebaseapp.com",
   production: true,
   firebase: {
     apiKey: "AIzaSyAAGyCNJIhfi4wIumrEtxEg_DwB2zD56UU",

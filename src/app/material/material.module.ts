@@ -13,7 +13,9 @@ import {
   MatProgressSpinnerModule,
   MatInputModule,
   MatSlideToggleModule,
-  MatDialogModule
+  MatDialogModule,
+  MatOptionModule,
+  MatSelectModule
 } from "@angular/material";
 import { LayoutModule } from "@angular/cdk/layout";
 
@@ -35,7 +37,9 @@ import { LayoutModule } from "@angular/cdk/layout";
     MatProgressSpinnerModule,
     MatInputModule,
     MatSlideToggleModule,
-    MatDialogModule
+    MatDialogModule,
+    MatOptionModule,
+    MatSelectModule
   ]
 })
-export class MaterialModule {}
+export class MaterialModule { }

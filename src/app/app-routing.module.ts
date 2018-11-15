@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: "./member/member.module#MemberModule"
   },
   {
+    path: "routes",
+    loadChildren: "./route/route.module#RouteModule"
+  },
+  {
     path: "",
     redirectTo: "camps",
     pathMatch: "full"
@@ -21,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

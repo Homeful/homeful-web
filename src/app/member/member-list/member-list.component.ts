@@ -17,12 +17,11 @@ export class MemberListComponent implements OnInit {
   constructor(
     private memberService: MemberService,
     private bottomSheet: MatBottomSheet
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.members$ = this.memberService.getAll();
     this.members$.subscribe(members => {
-      console.log(members);
       this.membersFound = true;
     });
   }

@@ -1,0 +1,57 @@
+<section class="mat-typography">
+  <h1 class="flex">
+    <button mat-icon-button class="back-btn" routerLink="/routes">
+      <mat-icon mat-icon>chevron_left</mat-icon>
+    </button>
+    {{title}} Route
+    <button class="detail-edit" [disabled]="editMode" (click)="setEditMode(true)" *ngIf="!addMode" mat-button color="accent">Edit
+      <mat-icon mat-list-icon style="font-size: 20px">edit</mat-icon>
+    </button>
+  </h1>
+</section>
+<form [formGroup]="routeForm" class="flex-container" *ngIf="route" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" [value]="route.name" required>
+    </mat-form-field>
+    <mat-form-field *ngIf="!!selectedCamps || addMode">
+      <mat-select placeholder="Camps" [(value)]="selectedCamps" multiple [disabled]="!editMode && !addMode"
+        [compareWith]="compareWithFunc">
+        <mat-option *ngFor="let camp of camps$ | async" [value]="camp">
+          {{camp.name}}
+          <small *ngIf="camp.members">
+            &nbsp;-&nbsp;{{ camp.members | members }}
+          </small>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button type="submit" *ngIf="editMode || addMode" [disabled]="routeForm.unTouched || !routeForm.valid"
+    mat-raised-button color="primary">Save</button>
+</form>
+<mat-tab-group *ngIf="!editMode && !addMode && routeCamps?.length > 0">
+  <mat-tab label="List">
+    <mat-list class="flex-container">
+      <mat-list-item *ngFor="let camp of routeCamps">
+        <h4 mat-line>{{camp.name}}</h4>
+        <p mat-line *ngIf="camp.members">
+          {{ camp.members | members }}
+        </p>
+        <span style="flex: 1"></span>
+        <button mat-raised-button color="accent" (click)="openBottomSheet($event, camp)">
+          <mat-icon>place</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-tab>
+
+  <mat-tab label="Map">
+    <div id="map-canvas">
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="11">
+        <agm-marker *ngFor="let camp of routeCamps" [latitude]="camp.location.lat" [longitude]="camp.location.lng">
+          <agm-info-window>{{camp.name}}</agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
+  </mat-tab>
+</mat-tab-group>

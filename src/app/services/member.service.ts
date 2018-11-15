@@ -10,11 +10,11 @@ import { map } from "rxjs/operators";
 export class MemberService {
   collection = "members";
 
-  constructor(private db: AngularFireDatabase) {}
+  constructor(private db: AngularFireDatabase) { }
 
   getAll(): Observable<Member[]> {
     return this.db
-      .list(`/${this.collection}`)
+      .list(`/${this.collection}`, ref => ref.orderByChild("name"))
       .snapshotChanges()
       .pipe(
         map(actions => {

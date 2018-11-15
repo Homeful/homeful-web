@@ -10,11 +10,11 @@ import { map } from "rxjs/operators";
 export class CampService {
   collection = "camps";
 
-  constructor(private db: AngularFireDatabase) {}
+  constructor(private db: AngularFireDatabase) { }
 
   getAll(): Observable<Camp[]> {
     return this.db
-      .list(`/${this.collection}`)
+      .list(`/${this.collection}`, ref => ref.orderByChild("name"))
       .snapshotChanges()
       .pipe(
         map(actions => {

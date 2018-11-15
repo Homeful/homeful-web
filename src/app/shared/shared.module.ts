@@ -11,6 +11,8 @@ import { ClipboardModule } from "ngx-clipboard";
 import { CreateMemberComponent } from "./create-member/create-member.component";
 import { FormsModule } from "@angular/forms";
 import { BottomSheetMemberComponent } from "./bottom-sheet-member/bottom-sheet-member.component";
+import { BottomSheetRouteComponent } from './bottom-sheet-route/bottom-sheet-route.component';
+import { MembersPipe } from "../pipes/members.pipe";
 
 @NgModule({
   imports: [
@@ -25,16 +27,20 @@ import { BottomSheetMemberComponent } from "./bottom-sheet-member/bottom-sheet-m
     ClipboardModule,
     FormsModule
   ],
+  providers: [MembersPipe],
   declarations: [
     BottomSheetNavigateComponent,
     CreateMemberComponent,
-    BottomSheetMemberComponent
+    BottomSheetMemberComponent,
+    BottomSheetRouteComponent,
+    MembersPipe
   ],
-  exports: [AgmCoreModule, MaterialModule, FontAwesomeModule, ClipboardModule],
+  exports: [AgmCoreModule, MaterialModule, FontAwesomeModule, ClipboardModule, MembersPipe],
   entryComponents: [
     BottomSheetNavigateComponent,
     CreateMemberComponent,
-    BottomSheetMemberComponent
+    BottomSheetMemberComponent,
+    BottomSheetRouteComponent
   ]
 })
-export class SharedModule {}
+export class SharedModule { }

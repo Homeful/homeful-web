@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <span class="toolbar-header">Routes</span>
+  <!-- This fills the remaining space of the current row -->
+  <span class="toolbar-add"></span>
+
+  <button mat-raised-button color="accent" routerLink="add">Add Route</button>
+
+</mat-toolbar>
+
+<mat-nav-list>
+  <div *ngFor="let route of routes$ | async">
+    <a mat-list-item [routerLink]="['edit', route.id]">
+      <h4 mat-line>{{route.name}}</h4>
+      <p class="gray" mat-line *ngIf="route.stops">
+        {{ route.stops | stops }}
+      </p>
+      <button mat-mini-fab (click)="openBottomSheet($event, route)">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </a>
+    <mat-divider></mat-divider>
+  </div>
+</mat-nav-list>

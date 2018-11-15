@@ -9,12 +9,11 @@ import { MatDialogRef } from "@angular/material";
 })
 export class CreateMemberComponent implements OnInit {
   member: Member = new Member();
-  constructor(private dialogRef: MatDialogRef<CreateMemberComponent>) {}
+  constructor(private dialogRef: MatDialogRef<CreateMemberComponent>) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onSave() {
-    console.log(this.member);
     this.dialogRef.close(this.member);
   }
 
